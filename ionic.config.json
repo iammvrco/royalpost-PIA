@@ -1,5 +1,7 @@
 {
   "name": "pruebaFirebase",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
