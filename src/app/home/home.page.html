@@ -1,20 +1,50 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
-    <ion-title>
-      Blank
+
+    <ion-buttons slot="start">
+      <ion-button color="light">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button color="light" autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title style="text-align: center;">
+      <img src="../../assets/icon/royal-post-w.png"/>
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+
+  <ion-slides scrollbar="true" [options]="vertical" style="height: 100%;" > 
+
+    <ion-slide style="display: block;">
+      <ion-slides class="slides-h" pager="true" [options]="horizontal">
+
+        <ion-slide *ngFor="let article of articles">
+          <div class="page">
+
+            <div class="title">
+              <h1 [routerLink]="['/article',article.category,article.id]">{{article.title}}</h1>
+              <p>{{article.subtitle}}</p>
+            </div>
+
+            <img src={{article.image}}/>
+
+          </div>
+        </ion-slide>
+
+      </ion-slides>
+    </ion-slide>
+
+    <ion-slide>
+      
+    </ion-slide>
+
+  </ion-slides>
+
 </ion-content>

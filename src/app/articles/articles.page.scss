@@ -1,0 +1,14 @@
+ion-toolbar img{
+    width: 70%; 
+  };
+    
+  ion-toolbar {
+    --background: black;
+  }
+  
+  ion-card img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }

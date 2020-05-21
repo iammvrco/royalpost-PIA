@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button color="light" autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title style="text-align: center;">
+      <img src="../../assets/icon/royal-post-w.png"/>
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="title">
+    <h1>{{article.title}}</h1>
+  </div>
+
+  <div class="image">
+    <img src={{article.image}} />
+  </div>
+
+  <div class="secondary">
+    <h1>{{article.subtitle}}</h1>
+    <p>Escrito por {{article.author}}</p>
+    <p>{{article.date}}</p>
+  </div>
+
+  <div class="text">
+    <p>{{article.text}}</p>
+  </div>
+
+</ion-content>
