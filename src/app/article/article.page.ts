@@ -24,16 +24,19 @@ export class ArticlePage implements OnInit {
   }
 
   articleId = null;
-
+  UID:string;
   constructor(
     private route: ActivatedRoute,
     private articlesService: ArticlesService, 
-    private loadingController: LoadingController ) { }
+    private loadingController: LoadingController,
+    private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit() {
 
     this.articleId = this.route.snapshot.params['id'];
     this.loadArticle();
+    this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
+    console.log(this.UID);
   }
 
   async loadArticle(){

@@ -2,7 +2,7 @@
   <ion-toolbar>
 
     <ion-buttons slot="start">
-      <ion-back-button color="light" [routerLink]="['/home']" ></ion-back-button>
+      <ion-back-button color="light" [routerLink]="['/home',UID]" ></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-menu-button color="light" autoHide="false"></ion-menu-button>
@@ -19,7 +19,7 @@
 
   <ion-list>
 
-    <ion-card *ngFor="let article of articles" [routerLink]="['/article',article.id]"> 
+    <ion-card *ngFor="let article of articles" [routerLink]="['/article',article.id,UID]"> 
       <img src={{article.image}}/>
       <ion-card-header>
         <ion-card-title>{{article.title}}</ion-card-title>
