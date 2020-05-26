@@ -3,22 +3,22 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {  AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'home/:uid',
     canActivate: [AuthGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'articles/:category',
+    path: 'articles/:category/:uid',
     canActivate: [AuthGuard],
     loadChildren: () => import('./articles/articles.module').then( m => m.ArticlesPageModule)
   },
   {
-    path: 'article/:id',
+    path: 'article/:id/:uid',
     canActivate: [AuthGuard],
     loadChildren: () => import('./article/article.module').then( m => m.ArticlePageModule)
   },

@@ -16,9 +16,12 @@ export class ArticlesPage implements OnInit {
 
   articles: ArticleI[];
 
+  UID:string;
+
   constructor( private articlesServices: ArticlesService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit() {
+    
     this.category=this.activatedRoute.snapshot.paramMap.get('category');
     this.articlesServices.getArticles().subscribe((articles) => {
       this.articles=articles.filter(article => {
@@ -28,6 +31,7 @@ export class ArticlesPage implements OnInit {
           return false
       });
     });
+    this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
   }
 
 }
