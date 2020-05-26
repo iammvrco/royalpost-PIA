@@ -19,6 +19,20 @@
     </ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Nombre
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="userdata.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Nacionalidad
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="userdata.nationality"></ion-input>
+  </ion-item>
   
   <ion-item-divider>
     <ion-button size="large" (click)="onRegister()" >Register</ion-button>

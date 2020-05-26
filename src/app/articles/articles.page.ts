@@ -26,7 +26,7 @@ export class ArticlesPage implements OnInit {
     this.articlesServices.getArticles().subscribe((articles) => {
       this.articles=articles.filter(article => {
         if(article.category===this.category)
-          return true;
+          return true; 
         else  
           return false
       });
