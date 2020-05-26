@@ -1,15 +1,13 @@
 <ion-header >
   <ion-toolbar>
-
     <ion-buttons slot="start">
-      <ion-button color="light">
+      <ion-button color="light" [routerLink]="['/profile',uid]">
         <ion-icon name="search-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-menu-button color="light" autoHide="false"></ion-menu-button>
     </ion-buttons>
-
     <ion-title style="text-align: center;">
       <img src="../../assets/icon/royal-post-w.png"/>
     </ion-title>

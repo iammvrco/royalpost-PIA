@@ -13,7 +13,7 @@ import { ArticlesService } from '../services/articles.service';
 export class HomePage {
 
   articles: ArticleI[];
-  UID:string;
+  uid:string;
 
   constructor(private articlesServices: ArticlesService, private activatedRoute: ActivatedRoute) {}
 
@@ -22,8 +22,8 @@ export class HomePage {
     this.articlesServices.getArticles().subscribe((articles) => {
       this.articles=articles.splice(articles.length-3)
     });
-    this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
-    console.log(this.UID);
+    this.uid=this.activatedRoute.snapshot.paramMap.get('uid');
+    console.log(this.uid);
   }}
 
   vertical={
