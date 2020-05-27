@@ -1,7 +1,7 @@
 <ion-header >
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="light" [routerLink]="['/profile',uid]">
+      <ion-button color="light" [routerLink]="['/profile',UID]">
         <ion-icon name="search-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -40,6 +40,7 @@
     </ion-slide>
 
     <ion-slide>
+      <ion-button [routerLink]="['/columns','music',UID]">Ver lista</ion-button>
       
     </ion-slide>
 

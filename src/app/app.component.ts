@@ -19,7 +19,39 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
 
-  uid;
+  UID;
+  options = [
+    {
+      category: 'music',
+      name: 'Música',
+      icon: 'musical-notes-outline'
+    },
+    {
+      category: 'sports',
+      name: 'Deportes',
+      icon: 'tennisball-outline'
+    },
+    {
+      category: 'authors',
+      name: 'Autores',
+      icon: 'earth-outline'
+    },
+    {
+      category: 'economy',
+      name: 'Economía',
+      icon: 'cash-outline'
+    },
+    {
+      category: 'famous',
+      name: 'Famosos',
+      icon: 'star-outline'
+    },
+    {
+      category: 'science',
+      name: 'Ciencia',
+      icon: 'bug-outline'
+    }
+  ]
 
   constructor(
     private platform: Platform,
@@ -34,7 +66,7 @@ export class AppComponent {
     this.initializeApp();
     this.afAuth.onAuthStateChanged( user => {
       if(user)
-        this.uid=user.uid
+        this.UID=user.uid
     });
   }
 

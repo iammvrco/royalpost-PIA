@@ -1,0 +1,47 @@
+ion-toolbar img{
+  width: 70%;
+
+};
+ 
+ion-toolbar {
+  --background: black;
+}
+
+.title{
+  width: 100%;
+  background: white;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.title h1{
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.secondary{
+  width: 100%;
+  background: white;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-bottom: 10%;
+}
+
+.secondary p{
+  font-size: 14px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.text{
+  padding-left: 6%;
+  padding-right: 6%;
+
+}
+
+.text p{
+  text-align: left;
+  font-size: 22px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 180%;
+}

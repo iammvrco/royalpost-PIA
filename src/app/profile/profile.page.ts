@@ -6,7 +6,8 @@ import { UsersService } from '../services/users.service';
 import { UserI } from '../models/user.interface';
 import { async } from '@angular/core/testing';
 import { LoadingController } from '@ionic/angular';
-
+import { ColumnI } from '../models/column.interface';
+import { ColumnService } from '../services/column.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,33 +15,91 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  uid: string;
-  userdata: UserI[];
+  UID: string;
   user: UserI = {
+    description: '',
     name: '',
     nationality: '',
     uid: '',
   }; 
+  column: ColumnI = {
+    author: '',
+    category:'',
+    date: '',
+    text: '',
+    title: '',
+    uid: '',
+  };
+  columns: ColumnI[];
+
+  options = [
+    {
+      category: 'music',
+      name: 'Música',
+    },
+    {
+      category: 'sports',
+      name: 'Deportes',
+    },
+    {
+      category: 'authors',
+      name: 'Autores',
+    },
+    {
+      category: 'economy',
+      name: 'Economía',
+    },
+    {
+      category: 'famous',
+      name: 'Famosos',
+    },
+    {
+      category: 'science',
+      name: 'Ciencia',
+    }
+  ]
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private usersService: UsersService,
+    private columnService: ColumnService,
     private loadingController: LoadingController
   ) { 
   }
 
   ngOnInit() {
-    this.uid=this.activatedRoute.snapshot.paramMap.get('uid');
+    var userdata;
+    this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
      this.usersService.getUsers().subscribe((users) => {
-      this.userdata = users.filter(user =>{
-        if(user.uid===this.uid)
+      userdata = users.filter(user =>{
+        if(user.uid===this.UID)
           return true;
         else
           return false;
       });
-      this.user=this.userdata[0];
-      console.log(this.userdata);
+      this.user=userdata[0];
+      this.loadColumns();
     });
-    console.log(this.user);
+  }
+  loadColumns(){
+    this.columnService.getColumns().subscribe(columns =>{
+      this.columns = columns.filter(column =>{
+        if(column.uid === this.UID)
+          return true;
+        else
+          return false;
+      })
+    })
+  }
+
+  async addcolumn(){
+    const loading = await this.loadingController.create({message: 'saving'});
+    await loading.present();
+    this.column.author = this.user.name;
+    this.column.uid = this.user.uid;
+    this.columnService.addColumn(this.column).then(() =>{
+      loading.dismiss();
+    })
   }
 }

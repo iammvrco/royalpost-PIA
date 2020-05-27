@@ -13,6 +13,7 @@ import { UsersService } from '../services/users.service';
 export class RegisterPage implements OnInit {
   user: User = new User();
   userdata: UserI = {
+    description: '',
     uid: '',
     name: '',
     nationality: ''
