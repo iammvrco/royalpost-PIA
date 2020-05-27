@@ -11,22 +11,17 @@
     <ion-title style="text-align: center;">
       <img src="../../assets/icon/royal-post-w.png"/>
     </ion-title>
-     
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-list>
-
-    <ion-card *ngFor="let article of articles" [routerLink]="['/article',article.id,UID]"> 
-      <img src={{article.image}}/>
-      <ion-card-header>
-        <ion-card-title>{{article.title}}</ion-card-title>
-        <ion-card-subtitle>{{article.subtitle}}</ion-card-subtitle>
-      </ion-card-header>
-    </ion-card>
-
-  </ion-list>
-
+    <ion-list>
+      <ion-card *ngFor="let column of columns" [routerLink]="['/column',column.id, UID]">
+        <ion-card-header>
+         <ion-card-title>{{column.title}}</ion-card-title>
+          <ion-card-subtitle>Escrito por: {{column.author}}</ion-card-subtitle>
+        </ion-card-header>
+     </ion-card>
+    </ion-list>
 </ion-content>
+ 

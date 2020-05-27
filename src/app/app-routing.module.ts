@@ -34,6 +34,17 @@ const routes: Routes = [
     path: 'profile/:uid',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'column/:id/:uid',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./column/column.module').then( m => m.ColumnPageModule)
+  },
+  {
+    path: 'columns/:category/:uid',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./columns/columns.module').then( m => m.ColumnsPageModule)
+  },
+
 
 
 ];

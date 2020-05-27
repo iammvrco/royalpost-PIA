@@ -33,7 +33,7 @@ export class ArticlePage implements OnInit {
 
   ngOnInit() {
 
-    this.articleId = this.route.snapshot.params['id'];
+    this.articleId = this.activatedRoute.snapshot.paramMap.get('id');
     this.loadArticle();
     this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
     console.log(this.UID);
@@ -44,7 +44,6 @@ export class ArticlePage implements OnInit {
       message: 'Loading...'
     });
     await loading.present();
-
     this.articlesService.getArticle(this.articleId).subscribe(article => {
       loading.dismiss();
       this.article=article;

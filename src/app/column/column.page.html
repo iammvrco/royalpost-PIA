@@ -13,27 +13,22 @@
     </ion-title>
     
   </ion-toolbar>
-</ion-header> 
-
+</ion-header>
 
 <ion-content>
 
   <div class="title">
-    <h1>{{article.title}}</h1>
+    <h1>{{column.title}}</h1>
   </div>
  
-  <div class="image">
-    <img src={{article.image}} />
-  </div>
-
   <div class="secondary">
-    <h1>{{article.subtitle}}</h1>
-    <p>Escrito por {{article.author}}</p>
-    <p>{{article.date}}</p>
+    <p>Escrito por {{column.author}}</p>
+    <p>{{column.category}}</p>
   </div>
 
   <div class="text">
-    <p>{{article.text}}</p>
+    <p>{{column.text}}</p>
   </div>
-
+  
 </ion-content>
+ 

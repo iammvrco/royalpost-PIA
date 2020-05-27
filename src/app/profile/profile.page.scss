@@ -1,0 +1,55 @@
+ion-content{
+  --background:rgb(235, 234, 234);
+}
+ion-list{
+  background:rgb(235, 234, 234);
+}
+
+ion-toolbar img{
+    width: 70%;
+};
+  
+ion-toolbar {
+  --background: black;
+}
+
+div{
+  background: white;
+  width: 100%;
+  padding: 2%;
+}
+
+ion-label h1{
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: left; 
+}
+
+div p{
+  font-size: 14px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+ion-card{
+   border-radius: 2px;
+   padding: 2%;
+ }
+
+ ion-card-title{
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: left;
+ } 
+
+ ion-card-subtitle{
+  font-size: 14px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: left;
+ }
+
+
+
+  
