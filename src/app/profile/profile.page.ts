@@ -15,6 +15,7 @@ import { ColumnService } from '../services/column.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  date: Date = new Date();
   UID: string;
   user: UserI = {
     description: '',
@@ -97,6 +98,7 @@ export class ProfilePage implements OnInit {
     const loading = await this.loadingController.create({message: 'saving'});
     await loading.present();
     this.column.author = this.user.name;
+    this.column.date = this.date.toString();
     this.column.uid = this.user.uid;
     this.columnService.addColumn(this.column).then(() =>{
       loading.dismiss();
