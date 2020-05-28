@@ -1,0 +1,31 @@
+ion-toolbar img{
+    width: 70%;
+  
+};
+
+ion-toolbar {
+    --background: black;
+}
+
+ion-content{
+    --background:rgb(235, 234, 234);
+ }
+
+ ion-card{
+    margin-top: 30%;
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+ion-button{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+
+.button-wrapper{
+  text-align: center;
+  margin: 20px;
+}

@@ -14,7 +14,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
 
   <ion-slides style="height:100%;">
     <ion-slide style="display: block;">
@@ -31,7 +31,7 @@
         <p>{{user.description}}</p>
       </div>
       
-      <ion-list style="width: 100%;">
+      <ion-list [scrollEvents]="true" style="width: 100%;">
         <ion-card *ngFor="let column of columns" [routerLink]="['/column' ,column.id,UID]">
           <ion-card-subtitle>
             {{column.category}}
@@ -49,13 +49,15 @@
     <ion-slide style="display: block;">
       <ion-item>
         <ion-label>
-          Title
-        </ion-label>
+          <h2>Title</h2>
+          </ion-label>
         <ion-input type="text" [(ngModel)]="column.title"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Categoria</ion-label>
+        <ion-label>
+          <h2>Category</h2>
+        </ion-label>
         <ion-select placeholder="Select One" [(ngModel)]="column.category">
           <ion-select-option *ngFor="let option of options" value={{option.category}}>{{option.name}}</ion-select-option>
         </ion-select>
@@ -63,19 +65,19 @@
 
       <ion-item>
         <ion-label>
-          Date
+        <h2>Date</h2>  
         </ion-label>
-        <ion-input type="text" [(ngModel)]="column.date"></ion-input>
+        <ion-datetime disabled="true" value="{{date | date: 'yyyy-MM-dd' }}" ></ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-label>
+        <ion-label position="stacked" stacked class="my-label">
           Text
         </ion-label>
-        <ion-textarea [(ngModel)]="column.text"></ion-textarea>
+        <ion-textarea  [(ngModel)]="column.text"></ion-textarea>
       </ion-item>
 
-      <ion-button expand="full" (click)="addcolumn()">Agregar</ion-button>
+      <ion-button color="dark"  expand="full" (click)="addcolumn()"><h3>Agregar</h3></ion-button>
 
     </ion-slide>
   </ion-slides>

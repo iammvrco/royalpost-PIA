@@ -1,41 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title style="text-align: center;">
+      <img src="../../assets/icon/royal-post-w.png"/>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+  <ion-card>
   <ion-item>
     <ion-label>
-      Email
+      <h1>Email</h1>
     </ion-label>
     <ion-input type="text" [(ngModel)]="user.email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      Password
+      <h1>Password</h1>
     </ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      Nombre
+      <h1>Name</h1>
     </ion-label>
     <ion-input type="text" [(ngModel)]="userdata.name"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      Nacionalidad
+      <h1>Nationality</h1>
     </ion-label>
     <ion-input type="text" [(ngModel)]="userdata.nationality"></ion-input>
   </ion-item>
   
   <ion-item-divider>
-    <ion-button size="large" (click)="onRegister()" >Register</ion-button>
-    <ion-button size="large" routerLink="/login" >Login</ion-button>
+    <div class="button-wrapper">
+    <ion-button color="dark" size="large" (click)="onRegister()" >Register</ion-button>
+  </div>
+   <div class="button-wrapper">
+    <ion-button color="dark" size="large" routerLink="/login" >Login</ion-button>
+    </div>
   </ion-item-divider>
+</ion-card>
 </ion-content>
