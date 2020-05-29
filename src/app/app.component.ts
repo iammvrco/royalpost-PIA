@@ -59,9 +59,9 @@ export class AppComponent {
     private statusBar: StatusBar,
     private menuCtrl: MenuController,
     private authSvc: AuthService,
-     private router: Router,
-     private afAuth: AngularFireAuth,
-     private activatedRoute: ActivatedRoute
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private activatedRoute: ActivatedRoute
   ) {
     this.initializeApp();
     this.afAuth.onAuthStateChanged( user => {
