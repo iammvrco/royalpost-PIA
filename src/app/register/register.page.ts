@@ -6,6 +6,8 @@ import { UserI } from '../models/user.interface';
 import { LoadingController } from '@ionic/angular';
 import { UsersService } from '../services/users.service';
 import { FormBuilder, Validators } from "@angular/forms";
+import { MenuController } from '@ionic/angular';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -164,7 +166,8 @@ export class RegisterPage implements OnInit {
     private router: Router,
     private loadingController: LoadingController, 
     private userService: UsersService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
@@ -197,5 +200,7 @@ export class RegisterPage implements OnInit {
   public submit() {
     console.log(this.registrationForm.value);
   }
-  
+  ionViewWillEnter(){
+    this.menuCtrl.enable(false);
+  }
 }

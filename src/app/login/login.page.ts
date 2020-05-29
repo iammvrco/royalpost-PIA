@@ -5,6 +5,7 @@ import { User } from '../shared/user.class';
 import { NavController, NavParams } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { FormBuilder, Validators } from "@angular/forms";
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -45,7 +46,8 @@ export class LoginPage implements OnInit {
   constructor(
     private auThSvc: AuthService, 
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private menuCtrl: MenuController
     ) { }
 
   ngOnInit() {
@@ -59,6 +61,10 @@ export class LoginPage implements OnInit {
       console.log('Successfully logged user!');
       this.router.navigate(['/home',uid]);
       this.uid=uid;
+      this.menuCtrl.enable(true);
     }
+  }
+  ionViewWillEnter(){
+    this.menuCtrl.enable(false);
   }
 }
