@@ -5,7 +5,6 @@ import { User } from '../shared/user.class';
 import { UserI } from '../models/user.interface';
 import { LoadingController } from '@ionic/angular';
 import { UsersService } from '../services/users.service';
-
 import { FormBuilder, Validators } from "@angular/forms";
 @Component({
   selector: 'app-register',

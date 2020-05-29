@@ -1,11 +1,19 @@
 <ion-header>
   <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button color="light" [routerLink]="['/home',UID]" ></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button disabled="true" color="dark" autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
     <ion-title style="text-align: center;">
       <img src="../../assets/icon/royal-post-w.png"/>
     </ion-title>
+     
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
     <ion-list>
