@@ -7,6 +7,84 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input autocapitalize inputmode="text" formControlName="name"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.name">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">email</ion-label>
+        <ion-input autocapitalize inputmode="email" formControlName="email"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" autocapitalize inputmode="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.password">
+        <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+   
+      <ion-item>
+        <ion-label position="floating">Nation</ion-label>
+        <ion-select  formControlName="nationality">
+          <ion-select-option *ngFor="let option of options" value="{{option.name}}">{{option.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.nationality">
+        <ng-container *ngIf="nationality.hasError(error.type) && (nationality.dirty || nationality.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+          
+      
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-input autocapitalize inputmode="text" formControlName="description"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.description">
+        <ng-container *ngIf="description.hasError(error.type) && (description.dirty || description.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      
+
+      <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
+        name="create">
+      </ion-icon>
+    </ion-button>
+
+    </ion-list>
+  </form>
+</ion-content>
+
+<!--
+      <ion-item>
+        <ion-label position="floating">Nationality</ion-label>
+        <ion-input autocapitalize inputmode="text" formControlName="nationality"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.nationality">
+        <ng-container *ngIf="nationality.hasError(error.type) && (nationality.dirty || nationality.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    -->
+  <!--
   <ion-card>
   <ion-item>
     <ion-label>
@@ -45,4 +123,5 @@
     </div>
   </ion-item-divider>
 </ion-card>
-</ion-content>
+-->
+
