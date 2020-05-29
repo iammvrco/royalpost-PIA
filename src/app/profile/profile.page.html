@@ -47,12 +47,63 @@
     </ion-slide>
 
     <ion-slide style="display: block;">
+
+      <form [formGroup]="registrationForm" (ngSubmit)="addcolumn()"> 
+        <ion-list>
+
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input autocapitalize inputmode="text" formControlName="title"></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.title">
+            <ng-container *ngIf="title.hasError(error.type) && (title.dirty || title.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+    
+          <ion-item>
+            <ion-label position="floating">Category</ion-label>
+            <ion-select  formControlName="category">
+              <ion-select-option *ngFor="let option of options" value="{{option.category}}">{{option.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.category">
+            <ng-container *ngIf="category.hasError(error.type) && (category.dirty || category.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-label>
+            <h2>Date</h2>  
+            </ion-label>
+            <ion-datetime disabled="true" value="{{date | date: 'yyyy-MM-dd' }}" ></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Text</ion-label>
+            <ion-input autocapitalize inputmode="text" formControlName="text"></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.text">
+            <ng-container *ngIf="text.hasError(error.type) && (text.dirty || text.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+
+          <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
+            name="create"></ion-icon>
+          </ion-button>
+
+        </ion-list>
+      </form>
+    </ion-slide>
+  </ion-slides>
+
+  
+</ion-content>
+<!--
       <ion-item>
         <ion-label>
           <h2>Title</h2>
           </ion-label>
-          <ion-label>Default Label</ion-label>
-          <ion-input></ion-input>
         <ion-input type="text" [(ngModel)]="column.title"></ion-input>
       </ion-item>
 
@@ -80,9 +131,4 @@
       </ion-item>
 
       <ion-button color="dark"  expand="full" (click)="addcolumn()"><h3>Agregar</h3></ion-button>
-
-    </ion-slide>
-  </ion-slides>
-
-  
-</ion-content>
+    -->
