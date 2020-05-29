@@ -60,7 +60,6 @@ export class ProfilePage implements OnInit {
     }
   ]
 
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private usersService: UsersService,
