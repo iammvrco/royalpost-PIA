@@ -7,8 +7,41 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    
+   
+    <form [formGroup]="registrationForm" (ngSubmit)="onLogin()">
+      <ion-list>
+
+        <ion-item>
+          <ion-label position="floating">email</ion-label>
+          <ion-input autocapitalize inputmode="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" autocapitalize inputmode="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        
+          <div class="button-wrapper">
+          <ion-button  [disabled]="!registrationForm.valid" type="submit" color="dark" size="large">Login</ion-button>
+        </div>
+        
+      </ion-list>
+    </form>
+    <div class="button-wrapper">
+      <ion-button color="dark" size="large" routerLink="/register">Register</ion-button>
+    </div>
+</ion-content>
+<!-- 
   <ion-item>
     <ion-label>
       <h1>Email</h1>
@@ -31,6 +64,4 @@
     <ion-button color="dark" size="large" routerLink="/register" >New</ion-button>
   </div>
   </ion-item-divider>
-</ion-card>
-
-</ion-content>
+-->
