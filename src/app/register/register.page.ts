@@ -19,7 +19,7 @@ export class RegisterPage implements OnInit {
     uid: '',
     name: '',
     nationality: '',
-  };
+  }; 
   registrationForm = this.formBuilder.group({
     name: ['',[Validators.required, Validators.minLength(3)]],
     email: ['',[
@@ -179,7 +179,7 @@ export class RegisterPage implements OnInit {
       this.userdata.uid=user.user.uid;
       this.userdata.name=this.registrationForm.value.name;
       this.userdata.nationality=this.registrationForm.value.nationality;
-      this.userdata.description=this.registrationForm.value.description
+      this.userdata.description=this.registrationForm.value.description;
       this.saveUser();
       this.router.navigateByUrl('/');
     }
