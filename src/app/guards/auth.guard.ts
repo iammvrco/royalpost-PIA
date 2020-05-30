@@ -10,13 +10,19 @@ export class AuthGuard implements CanActivate {
   constructor(private authSvc: AuthService, private router: Router){}
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
+    state: RouterStateSnapshot
+  ): 
+    |Observable<boolean | UrlTree> 
+    |Promise<boolean | UrlTree> 
+    |boolean 
+    |UrlTree {
       if(this.authSvc.isLogged){
         return true;
       }
-      console.log('Access denied!');
-      this.router.navigateByUrl('/login');
-        return false;
+      else{
+        console.log('Access denied!');
+        this.router.navigateByUrl('/login');
+        return false;  
+      }
     }
 }

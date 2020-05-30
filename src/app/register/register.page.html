@@ -1,15 +1,15 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
 
     <ion-buttons slot="start">
-      <ion-back-button color="light" [routerLink]="['/login']" ></ion-back-button>
+      <ion-back-button color="dark" [routerLink]="['/login']" ></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-menu-button disabled="true" color="dark" autoHide="false"></ion-menu-button>
+      <ion-menu-button style="--color:white;" disabled="true" autoHide="false"></ion-menu-button>
     </ion-buttons>
 
     <ion-title style="text-align: center;">
-      <img src="../../assets/icon/royal-post-w.png"/>
+      <img src="../../assets/icon/royal-post-b.png"/>
     </ion-title>
      
   </ion-toolbar>
@@ -17,9 +17,9 @@
 <ion-content>
   <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
     <ion-list>
-
+      <p>Nuevo usuario</p>
       <ion-item>
-        <ion-label position="floating">Name</ion-label>
+        <ion-label position="floating">nombre</ion-label>
         <ion-input autocapitalize inputmode="text" formControlName="name"></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.name">
@@ -39,7 +39,7 @@
       </div>
 
       <ion-item>
-        <ion-label position="floating">Password</ion-label>
+        <ion-label position="floating">password</ion-label>
         <ion-input type="password" autocapitalize inputmode="password" formControlName="password"></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.password">
@@ -49,7 +49,7 @@
       </div>
    
       <ion-item>
-        <ion-label position="floating">Nation</ion-label>
+        <ion-label position="floating">nacionalidad</ion-label>
         <ion-select  formControlName="nationality">
           <ion-select-option *ngFor="let option of options" value="{{option.name}}">{{option.name}}</ion-select-option>
         </ion-select>
@@ -62,8 +62,8 @@
           
       
       <ion-item>
-        <ion-label position="floating">Description</ion-label>
-        <ion-input autocapitalize inputmode="text" formControlName="description"></ion-input>
+        <ion-label position="floating">descripción</ion-label>
+        <ion-textarea rows="6" cols="20" autocapitalize inputmode="text" formControlName="description"></ion-textarea>
       </ion-item>
       <div *ngFor="let error of errorMessages.description">
         <ng-container *ngIf="description.hasError(error.type) && (description.dirty || description.touched)">
@@ -71,65 +71,11 @@
         </ng-container>
       </div>
       
-
-      <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
-        name="create">
-      </ion-icon>
-    </ion-button>
+      <div class="button-wrapper">
+        <ion-button [disabled]="!registrationForm.valid" type="submit">Registrar</ion-button>
+        <ion-button [routerLink]="['/login']" >Regresar</ion-button>
+      </div>
  
     </ion-list>
   </form>
 </ion-content>
-
-<!--
-      <ion-item>
-        <ion-label position="floating">Nationality</ion-label>
-        <ion-input autocapitalize inputmode="text" formControlName="nationality"></ion-input>
-      </ion-item>
-      <div *ngFor="let error of errorMessages.nationality">
-        <ng-container *ngIf="nationality.hasError(error.type) && (nationality.dirty || nationality.touched)">
-          <small class="error-message">{{error.message}}</small>
-        </ng-container>
-      </div>
-    -->
-  <!--
-  <ion-card>
-  <ion-item>
-    <ion-label>
-      <h1>Email</h1>
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <h1>Password</h1>
-    </ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <h1>Name</h1>
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="userdata.name"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <h1>Nationality</h1>
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="userdata.nationality"></ion-input>
-  </ion-item>
-  
-  <ion-item-divider>
-    <div class="button-wrapper">
-    <ion-button color="dark" size="large" (click)="onRegister()" >Register</ion-button>
-  </div>
-   <div class="button-wrapper">
-    <ion-button color="dark" size="large" routerLink="/login" >Login</ion-button>
-    </div>
-  </ion-item-divider>
-</ion-card>
--->
-

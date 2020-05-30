@@ -21,54 +21,65 @@ div{
 
 ion-label h1{
   font-size: 25px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   text-align: left; 
 }
 
 div p{
   font-size: 14px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: left;
 }
 
 ion-card{
-   border-radius: 2px;
+   border-radius: 10px;
    padding: 2%;
  }
 
  ion-card-title{
   font-size: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   text-align: left;
+  margin-top: 2%;
+  margin-bottom: 2%;
  } 
 
  ion-card-subtitle{
   font-size: 14px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: left;
  }
 
 
 .my-label{
   font-size: 24px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 ion-slides{
   overflow-y: scroll;
 }
 
-h2{
-  font-size: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+form{
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
-h3{
+form p{
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
   text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 22px;
 }
 
+ion-button{
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  width: 80%;
+  --background:black;
+  margin-top: 10%;
+}
+
+.button-wrapper{
+  text-align: center;
+}
 

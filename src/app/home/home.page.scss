@@ -13,8 +13,6 @@ ion-content{
 .slides-h{
   height: 100%;
   background:rgb(235, 234, 234);
-  --bullet-background:black; 
-  --bullet-background-active:black;
 };
 
 .page{
@@ -60,4 +58,31 @@ ion-content{
 .option h1{
   text-align: center;
   background: white;
+}
+
+.column{
+  width: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background:rgb(235, 234, 234);
+}
+ion-grid{
+  height: 90%;
+  width: 100%;
+  background:rgb(235, 234, 234);
+}
+ion-row{
+  height: 30%;
+  width: 100%;
+}
+ion-col{
+  width: 50%;
+}
+ion-col button{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  background: white;
+  color: black;
 }

@@ -30,7 +30,7 @@ export class ColumnPage implements OnInit {
     this.columnId = this.activatedRoute.snapshot.paramMap.get('id');
     this.loadColumn();
     this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
-    console.log(this.UID);
+    //console.log(this.UID);
   }  
 
   async loadColumn(){

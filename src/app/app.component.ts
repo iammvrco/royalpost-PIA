@@ -22,35 +22,35 @@ export class AppComponent {
   UID;
   options = [
     {
-      category: 'music',
-      name: 'Música',
-      icon: 'musical-notes-outline'
+      category: 'artist',
+      name: 'Artistas',
+      icon: 'star'
+    },
+    {
+      category: 'entertainment',
+      name: 'Entretenimiento',
+      icon: 'film'
+    },
+    {
+      category: 'sciencetec',
+      name: 'Ciencia y tecnología',
+      icon: 'flask'
+    },
+    {
+      category: 'healthcare',
+      name: 'Salud',
+      icon: 'pulse'
     },
     {
       category: 'sports',
       name: 'Deportes',
-      icon: 'tennisball-outline'
+      icon: 'baseball'
     },
     {
-      category: 'authors',
-      name: 'Autores',
-      icon: 'earth-outline'
+      category: 'news',
+      name: 'Noticias',
+      icon: 'newspaper'
     },
-    {
-      category: 'economy',
-      name: 'Economía',
-      icon: 'cash-outline'
-    },
-    {
-      category: 'famous',
-      name: 'Famosos',
-      icon: 'star-outline'
-    },
-    {
-      category: 'science',
-      name: 'Ciencia',
-      icon: 'bug-outline'
-    }
   ]
 
   constructor(
@@ -72,20 +72,30 @@ export class AppComponent {
 
   closeMenu(){
     this.menuCtrl.close();
+    this.statusBar.backgroundColorByName('black');
+    this.statusBar.styleLightContent();
+  }
+
+  open(){
+    this.statusBar.backgroundColorByName('white');
+    this.statusBar.styleDefault();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.statusBar.backgroundColorByName('black');
+      this.statusBar.styleLightContent();
     });
   }
 
   onLogout(){
-    console.log('Logout!');
+    //console.log('Logout!');
     this.afAuth.signOut();
     this.router.navigateByUrl('/login');
     this.closeMenu();
+    this.menuCtrl.enable(false);
   }
 
   

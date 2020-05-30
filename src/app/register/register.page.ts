@@ -170,6 +170,7 @@ export class RegisterPage implements OnInit {
     private menuCtrl: MenuController) { }
 
   ngOnInit() {
+    
   }
 
   async onRegister(){
@@ -177,13 +178,15 @@ export class RegisterPage implements OnInit {
     this.user.password = this.registrationForm.value.password;
     const user = await this.auThSvc.onRegister(this.user);
     if(user){
-      console.log('Successfully created user!');
       this.userdata.uid=user.user.uid;
       this.userdata.name=this.registrationForm.value.name;
       this.userdata.nationality=this.registrationForm.value.nationality;
       this.userdata.description=this.registrationForm.value.description;
       this.saveUser();
       this.router.navigateByUrl('/');
+    }
+    else{
+      alert('correo inválido.');
     }
   }
 

@@ -36,7 +36,7 @@ export class ArticlePage implements OnInit {
     this.articleId = this.activatedRoute.snapshot.paramMap.get('id');
     this.loadArticle();
     this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
-    console.log(this.UID);
+    //console.log(this.UID);
   }
 
   async loadArticle(){

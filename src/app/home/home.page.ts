@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ArticleI } from '../models/article.interface';
 import { ArticlesService } from '../services/articles.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomePage {
   articles: ArticleI[];
   UID:string;
 
-  constructor(private articlesServices: ArticlesService, private activatedRoute: ActivatedRoute) {}
+  constructor(private articlesServices: ArticlesService, private activatedRoute: ActivatedRoute,private menuCtrl: MenuController) {}
 
 
   ngOnInit(){{
@@ -23,7 +24,7 @@ export class HomePage {
       this.articles=articles.splice(articles.length-3)
     });
     this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
-    console.log(this.UID);
+    //console.log(this.UID);
   }}
 
   vertical={

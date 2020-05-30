@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../shared/user.class';
+import { UsersService } from './users.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class AuthService {
   }
 
   //login
-  async onLogin(user){
+  async onLogin(user:User){
     try{
       return await this.afAuth.signInWithEmailAndPassword(user.email, user.password);
     }catch( error ){
