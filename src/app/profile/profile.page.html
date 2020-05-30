@@ -28,10 +28,10 @@
             <p>{{user.nationality}}</p>
           </ion-label>
         </ion-item>
-        <p>{{user.description}}</p>
+        <p style="width: 94%; margin-left: 3%; margin-right: 3%;">{{user.description}}</p>
       </div>
       
-      <ion-list [scrollEvents]="true" style="width: 100%;">
+      <ion-list style="width: 100%;">
         <ion-card *ngFor="let column of columns" [routerLink]="['/column' ,column.id,UID]">
           <ion-card-subtitle>
             {{column.category}}
@@ -49,6 +49,7 @@
     <ion-slide style="display: block;">
       <form [formGroup]="registrationForm" (ngSubmit)="addcolumn()"> 
         <ion-list>
+          <p>Nueva columna</p>
           <ion-item>
             <ion-label position="floating">Title</ion-label>
             <ion-input autocapitalize inputmode="text" formControlName="title"></ion-input>
@@ -77,7 +78,7 @@
           </ion-item>
           <ion-item>
             <ion-label position="floating">Text</ion-label>
-            <ion-input autocapitalize inputmode="text" formControlName="text"></ion-input>
+            <ion-textarea rows="6" cols="20" autocapitalize inputmode="text" formControlName="text"></ion-textarea>
           </ion-item>
           <div *ngFor="let error of errorMessages.text">
             <ng-container *ngIf="text.hasError(error.type) && (text.dirty || text.touched)">
@@ -85,9 +86,7 @@
             </ng-container>
           </div>
 
-          <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
-            name="create"></ion-icon>
-          </ion-button>
+          <ion-button [disabled]="!registrationForm.valid" type="submit">Publicar</ion-button>
 
         </ion-list>
       </form>
@@ -96,36 +95,3 @@
 
   
 </ion-content>
-<!--
-      <ion-item>
-        <ion-label>
-          <h2>Title</h2>
-          </ion-label>
-        <ion-input type="text" [(ngModel)]="column.title"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>
-          <h2>Category</h2>
-        </ion-label>
-        <ion-select placeholder="Select One" [(ngModel)]="column.category">
-          <ion-select-option *ngFor="let option of options" value={{option.category}}>{{option.name}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>
-        <h2>Date</h2>  
-        </ion-label>
-        <ion-datetime disabled="true" value="{{date | date: 'yyyy-MM-dd' }}" ></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked" stacked class="my-label">
-          Text
-        </ion-label>
-        <ion-textarea  [(ngModel)]="column.text"></ion-textarea>
-      </ion-item>
-
-      <ion-button color="dark"  expand="full" (click)="addcolumn()"><h3>Agregar</h3></ion-button>
-    -->

@@ -58,13 +58,14 @@ export class LoginPage implements OnInit {
     const user = await this.auThSvc.onLogin(this.user);
     if(user){
       const uid=user.user.uid;
-      console.log('Successfully logged user!');
+      //console.log('Successfully logged user!');
+      this.menuCtrl.enable(true);
       this.router.navigate(['/home',uid]);
       this.uid=uid;
-      this.menuCtrl.enable(true);
     }
   }
   ionViewWillEnter(){
     this.menuCtrl.enable(false);
+    this.registrationForm.reset();
   }
 }

@@ -35,29 +35,29 @@ export class ProfilePage implements OnInit {
 
   options = [
     {
-      category: 'music',
-      name: 'Música',
+      category: 'artist',
+      name: 'Artistas'
+    },
+    {
+      category: 'entertainment',
+      name: 'Entretenimiento'
+    },
+    {
+      category: 'sciencetec',
+      name: 'Ciencia y tecnología'
+    },
+    {
+      category: 'healthcare',
+      name: 'Salud'
     },
     {
       category: 'sports',
-      name: 'Deportes',
+      name: 'Deportes'
     },
     {
-      category: 'authors',
-      name: 'Autores',
+      category: 'news',
+      name: 'Noticias'
     },
-    {
-      category: 'economy',
-      name: 'Economía',
-    },
-    {
-      category: 'famous',
-      name: 'Famosos',
-    },
-    {
-      category: 'science',
-      name: 'Ciencia',
-    }
   ]
 
   registrationForm = this.formBuilder.group({
@@ -127,7 +127,7 @@ export class ProfilePage implements OnInit {
     const loading = await this.loadingController.create({message: 'saving'});
     await loading.present();
     this.column.author = this.user.name;
-    this.column.date = this.date.toString();
+    this.column.date = this.date.toUTCString();
     this.column.text = this.registrationForm.value.text;
     this.column.title = this.registrationForm.value.title;
     this.column.category = this.registrationForm.value.category;
@@ -135,5 +135,6 @@ export class ProfilePage implements OnInit {
     this.columnService.addColumn(this.column).then(() =>{
       loading.dismiss();
     })
+    this.registrationForm.reset();
   }
 }

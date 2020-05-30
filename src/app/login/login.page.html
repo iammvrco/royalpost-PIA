@@ -1,13 +1,8 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title style="text-align: center;">
-      <img src="../../assets/icon/royal-post-w.png"/>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content scroll-y="false">
+    <div class="head">
+      <img src="../../assets/icon/royal-post-b.png" >
+    </div>
 
-<ion-content>
-   
     <form [formGroup]="registrationForm" (ngSubmit)="onLogin()">
       <ion-list>
 
@@ -22,7 +17,7 @@
         </div>
 
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label position="floating">password</ion-label>
           <ion-input type="password" autocapitalize inputmode="password" formControlName="password"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password">
@@ -31,37 +26,11 @@
           </ng-container>
         </div>
         
-          <div class="button-wrapper">
-          <ion-button  [disabled]="!registrationForm.valid" type="submit" color="dark" size="large">Login</ion-button>
+        <div class="button-wrapper">
+          <ion-button  [disabled]="!registrationForm.valid" type="submit">Login</ion-button>
+          <ion-button routerLink="/register">Register</ion-button>
         </div>
         
       </ion-list>
     </form>
-    <div class="button-wrapper">
-      <ion-button color="dark" size="large" routerLink="/register">Register</ion-button>
-    </div>
 </ion-content>
-<!-- 
-  <ion-item>
-    <ion-label>
-      <h1>Email</h1>
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <h1>Password</h1>
-    </ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
-  
-  <ion-item-divider>
-    <div class="button-wrapper">
-    <ion-button color="dark" size="large" (click)="onLogin()" >Login</ion-button>
-  </div>
-  <div class="button-wrapper">
-    <ion-button color="dark" size="large" routerLink="/register" >New</ion-button>
-  </div>
-  </ion-item-divider>
--->

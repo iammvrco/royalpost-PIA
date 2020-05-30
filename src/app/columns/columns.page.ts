@@ -23,7 +23,7 @@ export class ColumnsPage implements OnInit {
         else 
           return false;
       });
-      console.log(this.columns);
+      //console.log(this.columns);
     });
     this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
   }

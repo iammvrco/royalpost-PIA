@@ -9,7 +9,7 @@
       <ion-menu-button color="light" autoHide="false"></ion-menu-button>
     </ion-buttons>
     <ion-title style="text-align: center;">
-      <img src="../../assets/icon/royal-post-w.png"/>
+      <img src="../../assets/icon/royal-post-w.png" />
     </ion-title>
 
   </ion-toolbar>
@@ -21,7 +21,7 @@
   <ion-slides scrollbar="true" [options]="vertical" style="height: 100%;" > 
 
     <ion-slide style="display: block;">
-      <ion-slides class="slides-h" pager="true" [options]="horizontal">
+      <ion-slides class="slides-h" [options]="horizontal">
 
         <ion-slide *ngFor="let article of articles">
           <div class="page">
@@ -39,8 +39,40 @@
       </ion-slides>
     </ion-slide>
 
-    <ion-slide>
-      <ion-button [routerLink]="['/columns','music',UID]">Ver lista</ion-button>
+    <ion-slide style="display: block; background:rgb(235, 234, 234);">
+
+      <h1 class="column">Columnas</h1>
+      
+      <ion-grid>
+
+        <ion-row>
+          <ion-col>
+            <button [routerLink]="['/columns','artist',UID]">Artistas</button>
+          </ion-col>
+          <ion-col>
+            <button [routerLink]="['/columns','entertainment',UID]">Entretenimiento</button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <button [routerLink]="['/columns','sciencetec',UID]">Ciencia y tecnología</button>
+          </ion-col>
+          <ion-col>
+            <button [routerLink]="['/columns','healthcare',UID]">Salud</button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <button [routerLink]="['/columns','sports',UID]">Deportes</button>
+          </ion-col>
+          <ion-col>
+            <button [routerLink]="['/columns','news',UID]">Noticias</button>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
       
     </ion-slide>
 
