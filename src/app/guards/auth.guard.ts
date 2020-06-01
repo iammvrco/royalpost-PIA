@@ -19,10 +19,6 @@ export class AuthGuard implements CanActivate {
       if(this.authSvc.isLogged){
         return true;
       }
-      else{
-        console.log('Access denied!');
-        this.router.navigateByUrl('/login');
-        return false;  
-      }
+      this.router.navigateByUrl('/login');
     }
 }

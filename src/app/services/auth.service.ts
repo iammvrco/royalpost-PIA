@@ -30,4 +30,9 @@ export class AuthService {
       console.log('Error on login user' ,error);
     }
   }
+
+  async onLogout(){
+    this.afAuth.authState.subscribe( () =>this.isLogged = true);
+    return await this.afAuth.signOut();
+  }
 }
