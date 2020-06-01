@@ -6,6 +6,8 @@ import { NavController, NavParams } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { FormBuilder, Validators } from "@angular/forms";
 import { MenuController } from '@ionic/angular';
+import { initializeApp } from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,7 +15,6 @@ import { MenuController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   user: User = new User();
-  uid;
 
   registrationForm = this.formBuilder.group({
     email: ['',[
@@ -47,24 +48,26 @@ export class LoginPage implements OnInit {
     private auThSvc: AuthService, 
     private router: Router,
     private formBuilder: FormBuilder,
-    private menuCtrl: MenuController
-    ) { }
+    private menuCtrl: MenuController,
+    private afAuth: AngularFireAuth,
+  ) { }
 
   ngOnInit() {
+
   }
   async onLogin(){
-    this.user.email = this.registrationForm.value.email;
-    this.user.password = this.registrationForm.value.password;
+    this.user.email =  await this.registrationForm.value.email;
+    this.user.password = await this.registrationForm.value.password;
     const user = await this.auThSvc.onLogin(this.user);
     if(user){
-      const uid=user.user.uid;
+      const uid = user.user.uid;
       //console.log('Successfully logged user!');
       this.menuCtrl.enable(true);
       this.router.navigate(['/home',uid]);
-      this.uid=uid;
     }
   }
   ionViewWillEnter(){
+    this.menuCtrl.close();
     this.menuCtrl.enable(false);
     this.registrationForm.reset();
   }

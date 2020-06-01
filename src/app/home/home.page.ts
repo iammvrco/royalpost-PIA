@@ -21,7 +21,8 @@ export class HomePage {
 
   ngOnInit(){{
     this.articlesServices.getArticles().subscribe((articles) => {
-      this.articles=articles.splice(articles.length-3)
+      this.articles=articles.splice(articles.length-5);
+      this.articles.reverse();
     });
     this.UID=this.activatedRoute.snapshot.paramMap.get('uid');
     //console.log(this.UID);

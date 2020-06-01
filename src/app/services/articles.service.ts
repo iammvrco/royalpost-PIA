@@ -14,7 +14,7 @@ export class ArticlesService {
   private articles: Observable<ArticleI[]>;
 
   constructor( db: AngularFirestore ) { 
-    this.articlesCollection = db.collection<ArticleI>('articles');
+    this.articlesCollection = db.collection<ArticleI>('articles' , ref => ref.orderBy('date','asc'));
     this.articles = this.articlesCollection.snapshotChanges().pipe(
       map( actions => {
         return actions.map( a => {

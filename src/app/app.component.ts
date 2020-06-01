@@ -66,7 +66,7 @@ export class AppComponent {
     this.initializeApp();
     this.afAuth.onAuthStateChanged( user => {
       if(user)
-        this.UID=user.uid
+        this.UID=user.uid;
     });
   }
 
@@ -92,13 +92,9 @@ export class AppComponent {
 
   onLogout(){
     //console.log('Logout!');
-    this.afAuth.signOut();
-    this.router.navigateByUrl('/login');
-    this.closeMenu();
-    this.menuCtrl.enable(false);
+    this.authSvc.onLogout().then(()=>{
+      this.router.navigateByUrl('/login');
+    })
   }
-
-  
-
 }
  
